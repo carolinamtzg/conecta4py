@@ -25,3 +25,13 @@ def juega(tablero, columna, valor_ficha):
       c[indice] = valor_ficha
       break
     indice -= 1
+
+def esta_llena(tablero, columna):
+  # seleccionar la col que queremos comprobar
+  # comprobar si la columna tiene huecos con un in
+  # devolver True o False
+  c = tablero[columna]
+  if 0 not in c:
+    return True
+  else:
+    return False
