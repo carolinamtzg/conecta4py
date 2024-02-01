@@ -32,7 +32,7 @@ def juega(columna, jugador):
 
 juega([0,0,0,0,0,0], jugador_1)
 
-# buscar la ultima posicion vacia de la columna:
+# buscar la ultima posicion vacia de la columna: (devuelve un entero)
 
 def busca_hueco(columna):
   for c in columna:
