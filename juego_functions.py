@@ -76,4 +76,8 @@ def victoria(tablero, valor_ficha):
   for col_index in range(num_de_col):
     if victoria_vertical(tablero, col_index, valor_ficha):
       return True
+    num_filas = len(tablero[col_index])
+    for fila_index in range(num_filas):
+      if victoria_horizontal(tablero, fila_index, valor_ficha):
+        return True
   return False

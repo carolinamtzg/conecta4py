@@ -64,3 +64,15 @@ def test_victoria_horizontal():
   juega(tab, 4, "x")
   juega(tab, 5, "x")
   assert victoria_horizontal(tab, 5, "x")
+
+def test_victoria_horizonal_tablero():
+  tab = crea_tablero(6,7)
+  juega(tab, 0, "x")
+  juega(tab, 1, "o")
+  juega(tab, 2, "x")
+  juega(tab, 3, "x")
+  juega(tab, 4, "x")
+  juega(tab, 5, "x")
+
+  assert victoria(tab, "x") == True
+  assert victoria(tab, "o") == False
