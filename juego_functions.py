@@ -1,3 +1,5 @@
+# el tablero esta definido como una lista de columnas:
+
 def crea_tablero(fila, columna):
   salida =[]
   for element in range(columna):
@@ -31,7 +33,47 @@ def esta_llena(tablero, columna):
   # comprobar si la columna tiene huecos con un in
   # devolver True o False
   c = tablero[columna]
-  if 0 not in c:
-    return True
-  else:
-    return False
+  return 0 not in c
+
+# TAREA:
+# El tablero debe detectar si se ha producido una victoria. Hay 3 tipos de victorias:
+# Vertical: Comprobar una columna con 4 fichas seguidas iguales
+# Horizontal: Comprobar en una fila
+# Diagonal ascendente o descendente.
+# Hacer test y funcion de victoria vertical y si podeis avanzar las otras
+
+def victoria_vertical(tablero, pos_columna, valor_ficha):
+  counter_iguales = 0
+  columna = tablero[pos_columna]
+  ix = 0
+  while ix < len(columna):
+    if columna[ix] == valor_ficha:
+      counter_iguales += 1
+    else:
+      counter_iguales = 0
+    if counter_iguales == 4:
+      return True
+    ix += 1
+  return False
+
+def victoria_horizontal(tablero, pos_fila, valor_ficha):
+  counter_iguales = 0
+
+  for columna in tablero:
+    if columna[pos_fila] == valor_ficha:
+      counter_iguales += 1
+    else:
+      counter_iguales = 0
+    if counter_iguales == 4:
+      return True
+  return False
+
+
+def victoria(tablero, valor_ficha):
+  #obtener el num de col de mi tablero
+  num_de_col = len(tablero)
+  #iterar sobre range(num_col)
+  for col_index in range(num_de_col):
+    if victoria_vertical(tablero, col_index, valor_ficha):
+      return True
+  return False
